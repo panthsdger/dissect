@@ -444,7 +444,7 @@ class SignatureEntry(VStruct):
 
     def __init__(self):
         VStruct.__init__(self)
-        self.size = int32(bigend=False).vsOnSet( self._onSetSize )
+        self.size = int32(endian = 'little').vsOnSet( self._onSetSize )
         self.magic = vbytes(size=4) # should always be 0x00020200
         self.pkcs7 = vbytes()
 
